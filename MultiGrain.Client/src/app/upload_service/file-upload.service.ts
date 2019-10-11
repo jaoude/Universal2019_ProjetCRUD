@@ -8,7 +8,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class FileUploadService {
 
-  apiUrl = 'http://localhost/dev/angapi/api/upload';
+  apiUrl = 'https://localhost:44368/api/filedocuments';
 
   constructor(private http: HttpClient) { }
 
