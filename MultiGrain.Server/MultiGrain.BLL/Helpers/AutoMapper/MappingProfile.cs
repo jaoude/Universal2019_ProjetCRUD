@@ -13,7 +13,11 @@ namespace MultiGrain.BLL.Helpers
         {
             CreateMap<Person, PersonDto>();
             CreateMap<CreatePersonDto, Person>();
+
             CreateMap<UploadFileDocumentDto, FileDocument>();
+
+            CreateMap<ActionPlan, ActionPlanDto>();
+            CreateMap<CreateActionPlanDto, ActionPlan>();
         }
     }
 }

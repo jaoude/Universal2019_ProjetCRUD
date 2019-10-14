@@ -24,7 +24,7 @@ namespace MultiGrain.DAL.DBContext
         public DbSet<Outcome> Outcomes { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Programm> Programms { get; set; }
-        public DbSet<Entities.Rolee> Rolees { get; set; }
+        public DbSet<Rolee> Rolees { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Semester> Semesters { get; set; }
         public DbSet<Session> Sessions { get; set; }
@@ -32,7 +32,7 @@ namespace MultiGrain.DAL.DBContext
         public DbSet<Teaching> Teachings { get; set; }
         public DbSet<TeachingUnit> TeachingUnits { get; set; }
         public DbSet<TeachingUnitContent> TeachingUnitContents { get; set; }
-        public DbSet<Entities.Type> Types { get; set; }
+        public DbSet<Types> Types { get; set; }
         public DbSet<Year> Years { get; set; }
         public DbSet<FileDocument> FileDocuments { get; set; }
         public MultiGrainDbContext(DbContextOptions<MultiGrainDbContext> options) : base(options)

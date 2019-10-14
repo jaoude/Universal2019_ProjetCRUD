@@ -26,7 +26,7 @@ namespace MultiGrain.Api.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateInstitutionDto institution, CancellationToken ct)
+        public IActionResult Create([FromBody] CreateInstitutionDto institution, CancellationToken ct)
         {
             _logger.LogInformation("called Create{0}", institution.ToString());
             return Ok();

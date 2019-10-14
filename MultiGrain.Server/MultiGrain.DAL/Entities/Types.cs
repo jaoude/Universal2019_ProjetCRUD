@@ -9,7 +9,7 @@ using static MultiGrain.Common.Constants;
 namespace MultiGrain.DAL.Entities
 {
     [Table("Type")]
-    public class Type
+    public class Types
     {
         
         [Key]

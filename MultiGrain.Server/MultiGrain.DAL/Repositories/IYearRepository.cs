@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace MultiGrain.DAL.Repositories
 {
-    public interface IFileDocumentRepository : IRepository<FileDocument>
-    {   
+    public interface IYearRepository : IRepository<Year>
+    {
 
     }
 }
