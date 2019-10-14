@@ -9,5 +9,6 @@ namespace MultiGrain.DAL.Repositories
 {
     public interface IFileDocumentRepository : IRepository<FileDocument>
     {   
+
     }
 }

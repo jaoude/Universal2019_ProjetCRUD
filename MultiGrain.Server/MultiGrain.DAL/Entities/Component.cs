@@ -49,7 +49,7 @@ namespace MultiGrain.DAL.Entities
 
 
         [ForeignKey("TypeId")]
-        public Type Type{ get; set; }
+        public Types Type{ get; set; }
 
         [ForeignKey("TeachingUnitId")]
         public TeachingUnit TeachingUnit{ get; set; }
