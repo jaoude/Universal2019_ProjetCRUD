@@ -56,11 +56,18 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
-              <i  class="fas fa-trophy"  [class.green-icon]="vision.valid" [class.red-icon]="vision.invalid && vision.touched"></i>
+              <i  class="fas fa-trophy" [class.green-icon]="vision.valid" [class.red-icon]="vision.invalid && vision.touched"></i>
             </div>
           </div>
-          <input name="vision" #vision="ngModel" [(ngModel)]="service.formData.vision" 
-          class="form-control" placeholder="Vision" required maxlength="100" minlength="0">
+          <select required name="vision" 
+                        #vision="ngModel" 
+                        class="form-control" [(ngModel)]="service.formData.vision">  
+                   <option value="" selected disabled> <i>Select Vision</i></option> 
+                    <option *ngFor="let x of service.list | unique"  
+                            [ngValue]="x.vision">  
+                        {{x.vision}}  
+                    </option>  
+                </select>
         </div>
       </div>
 

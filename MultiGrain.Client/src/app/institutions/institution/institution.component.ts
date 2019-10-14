@@ -9,6 +9,7 @@ import { InstitutionService } from '../../shared/shared-institutions/institution
   templateUrl: './institution.component.html',
   styles: []
 })
+
 export class InstitutionComponent implements OnInit {
 
   
