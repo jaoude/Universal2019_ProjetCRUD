@@ -34,15 +34,15 @@ namespace MultiGrain.BLL.Services
             return ActionPlanDto;
         }
 
-        public async Task<Guid> CreateActionPlanAsync(CreateActionPlanDto CreateActionPlanDto, CancellationToken ct)
+        public async Task<int?> CreateActionPlanAsync(CreateActionPlanDto CreateActionPlanDto, CancellationToken ct)
         {
             ActionPlan ActionPlanEntity = _mapper.Mapper.Map<ActionPlan>(CreateActionPlanDto);
             _uow.ActionPlan.CreateActionPlan(ActionPlanEntity);
 
             if (await _uow.SaveChangesAsync(ct) > 0)
-                return Guid.Empty;// personsEntity.Id;
+                return ActionPlanEntity.Id;// personsEntity.Id;
             else
-                return Guid.Empty;
+                return null;
         }
     }
 

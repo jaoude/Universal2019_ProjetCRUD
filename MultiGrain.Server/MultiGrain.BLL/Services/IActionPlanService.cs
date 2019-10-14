@@ -10,7 +10,7 @@ namespace MultiGrain.BLL.Services
     {
         Task<IEnumerable<ActionPlanDto>> GetActionPlanAsync(CancellationToken ct);
         Task<ActionPlanDto> GetActionPlanAsync(Guid id, CancellationToken ct);
-        Task<Guid> CreateActionPlanAsync(CreateActionPlanDto CreateActionPlanDto, CancellationToken ct);
+        Task<int?> CreateActionPlanAsync(CreateActionPlanDto CreateActionPlanDto, CancellationToken ct);
 
     }
 }

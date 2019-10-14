@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace MultiGrain.Api.Controllers
 {
-    [Route("api/action")]
+    [Route("api/actionplans")]
     [ApiController]
-    public class ActionPlanController : ControllerBase
+    public class ActionPlansController : ControllerBase
     {
-        private readonly ILogger<ActionPlanController> _logger;
+        private readonly ILogger<ActionPlansController> _logger;
         private readonly IActionPlanService _actionService;
-        public ActionPlanController(ILogger<ActionPlanController> logger, IActionPlanService ActionPlanService)
+        public ActionPlansController(ILogger<ActionPlansController> logger, IActionPlanService ActionPlanService)
         {
             _actionService = ActionPlanService;
             _logger = logger;
@@ -39,10 +39,10 @@ namespace MultiGrain.Api.Controllers
         {
             _logger.LogInformation("called CreateActionPlan {0}", act.ToString());
             var id = await _actionService.CreateActionPlanAsync(act, ct);
-            if (id == Guid.Empty)
+            if (id == null)
                 return UnprocessableEntity();
             else
-                return CreatedAtRoute("GetActionPlan",new { id = id },act);
+                return CreatedAtRoute("GetActionPlan",new { id = id }, act);
         }
     }
 }
