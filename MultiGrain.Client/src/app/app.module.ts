@@ -9,8 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { AppRoutingModule, routingComponent} from './app-routing.module';
-import { UploadsComponent } from './uploads/uploads.component';
-import { FileUploadService } from './upload_service/file-upload.service';
+
 
 import { InstitutionsComponent } from './institutions/institutions.component';
 import { InstitutionComponent} from './institutions/institution/institution.component';
@@ -22,6 +21,7 @@ import { PersonComponent } from './persons/person/person.component';
 import { PersonListComponent } from './persons/person-list/person-list.component';
 import { PersonsService } from './shared/shared-persons/persons.service';
 import { UniquePipe } from './filter';
+import { UploadComponent } from './upload/upload.component';
 
 
 
@@ -29,14 +29,14 @@ import { UniquePipe } from './filter';
   declarations: [
     AppComponent,
     routingComponent,
-    UploadsComponent,
     InstitutionsComponent,
     InstitutionComponent,
     InstitutionListComponent,
     PersonsComponent,
     PersonComponent,
     PersonListComponent,
-    UniquePipe
+    UniquePipe,
+    UploadComponent
   
   ],
   imports: [
@@ -48,7 +48,7 @@ import { UniquePipe } from './filter';
     ReactiveFormsModule,
     ToastrModule.forRoot()
   ],
-  providers: [FileUploadService,InstitutionService,PersonsService],
+  providers: [InstitutionService,PersonsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
