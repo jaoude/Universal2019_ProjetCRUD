@@ -15,7 +15,7 @@ namespace MultiGrain.BLL.Services
 {
     public class FileDocumentService : ServiceBase, IFileDocumentService
     {
-        public FileDocumentService(IUnitOfWork uow, IAutoMapperService mapper, ILogger<PersonService> logger) : base(uow, mapper, logger)
+        public FileDocumentService(IUnitOfWork uow, IAutoMapperService mapper, ILogger<FileDocumentService> logger) : base(uow, mapper, logger)
         {
         }
 

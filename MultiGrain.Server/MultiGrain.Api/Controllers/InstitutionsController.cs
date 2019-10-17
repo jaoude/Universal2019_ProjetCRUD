@@ -17,20 +17,36 @@ namespace MultiGrain.Api.Controllers
     public class InstitutionsController : ControllerBase
     {
         private readonly ILogger<InstitutionsController> _logger;
-        private readonly IPersonService _personService;
-        public InstitutionsController(ILogger<InstitutionsController> logger, IPersonService personService)
+        private readonly IInstitutionService _instituService;
+        public InstitutionsController(ILogger<InstitutionsController> logger, IInstitutionService InstitutionService)
         {
-            _personService = personService;
+            _instituService = InstitutionService;
             _logger = logger;
         }
 
 
-        [HttpPost]
-        public IActionResult Create([FromBody] CreateInstitutionDto institution, CancellationToken ct)
+        [HttpGet]
+        //[Route("{id}", Name = "GetInstitution")]
+        public async Task<IActionResult> GetInstitution(CancellationToken ct)
         {
-            _logger.LogInformation("called Create{0}", institution.ToString());
-            return Ok();
+            var action = await _instituService.GetInstitutionAsync(ct);
+            return Ok(action);
+        }
+            
+
+        [HttpPost]
+        public async Task<IActionResult> CreateInstitution([FromBody] CreateInstitutionDto ins, CancellationToken ct)
+        {
+            // _logger.LogInformation("called CreateInstitution {0}", person.ToString());
+            var insti = await _instituService.CreateInstitutionAsync(ins, ct);
+            if (insti == null)
+                return UnprocessableEntity();
+            else
+                return CreatedAtRoute("GetInstitution", new { insti }, ins);
+
+
         }
     }
 }
+
 

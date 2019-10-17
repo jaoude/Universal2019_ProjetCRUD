@@ -9,5 +9,9 @@ namespace MultiGrain.DAL.Repositories
 {
     public interface ITeachingUnitRepository : IRepository<TeachingUnit>
     {
+        Task<IEnumerable<TeachingUnit>> GetTeachingUnitAsync(CancellationToken ct);
+        Task<TeachingUnit> GetTeachingUnitAsync(Guid id, CancellationToken ct);
+        void CreateTeachingUnit(TeachingUnit TeachingUnitEntity);
+
     }
 }

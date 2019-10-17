@@ -40,16 +40,29 @@ namespace MultiGrain.Api
             services.AddTransient<IInstitutionRepository, InstitutionRepository>();
             services.AddTransient<IFileDocumentRepository, FileDocumentRepository>();
 
-            services.AddTransient<IActionPlanRepository, ActionPlanRepository>();
-
 
             services.AddTransient<IServiceBase, ServiceBase>();
             services.AddTransient<IAutoMapperService, AutoMapperService>();
             services.AddTransient<IPersonService, PersonService>();
 
+            services.AddTransient<IActionPlanRepository, ActionPlanRepository>();
             services.AddTransient<IActionPlanService, ActionPlanService>();
 
             services.AddTransient<IFileDocumentService, FileDocumentService>();
+
+            services.AddTransient<ICatalogRepository, CatalogRepository>();
+            services.AddTransient<ICatalogService, CatalogService>();
+
+            services.AddTransient<IInstitutionRepository, InstitutionRepository>();
+            services.AddTransient<IInstitutionService, InstitutionService>();
+
+            services.AddTransient<IProgrammRepository, ProgrammRepository>();
+            services.AddTransient<IProgrammService, ProgrammService>();
+
+            services.AddTransient<ITeachingUnitRepository, TeachingUnitRepository>();
+            services.AddTransient<ITeachingUnitService, TeachingUnitService>();
+
+
             services.AddCors();
             services.AddLogging();
         }

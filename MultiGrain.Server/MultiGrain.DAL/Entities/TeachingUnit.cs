@@ -28,14 +28,14 @@ namespace MultiGrain.DAL.Entities
         public string Syllabus { get; set; }
         public string TeachingOutcomes { get; set; }
         public string Title { get; set; }
-        
+
+        public int RequiredBy { get; set; }
         public List<Component> Components { get; set; }
         public List<TeachingUnitContent> TeachingUnitContents { get; set; }
         public List<Evaluation> Evaluations { get; set; }
         public List<KPI> Kpis { get; set; }
         public List<Module> Modules { get; set; }
         public List<TeachingUnit> Prerequisite { get; set; }
-        public int RequiredBy { get; set; }
         public int? SemesterId { get; set; }
         [ForeignKey("SemesterId")]
         public Semester Semester { get; set; }

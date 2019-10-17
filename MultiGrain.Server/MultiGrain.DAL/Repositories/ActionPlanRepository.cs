@@ -10,8 +10,6 @@ namespace MultiGrain.DAL.Repositories
 {
     public class ActionPlanRepository : Repository<ActionPlan>, IActionPlanRepository
     {
-        private MultiGrainDbContext _context;
-
         public ActionPlanRepository(MultiGrainDbContext _db)
             : base(_db)
         {

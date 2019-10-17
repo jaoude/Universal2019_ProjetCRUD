@@ -29,7 +29,7 @@ namespace MultiGrain.DAL.UnitOfWork
         public ITypesRepository Types => _serviceProvider.GetService<ITypesRepository>();
 
         public ITeachingUnitContentRepository TeachingUnitContent  => _serviceProvider.GetService<ITeachingUnitContentRepository>();
-
+        public ITeachingUnitRepository TeachingUnit => _serviceProvider.GetService<ITeachingUnitRepository>();
         public ITeachingRepository Teaching => _serviceProvider.GetService<ITeachingRepository>();
         public ITeacherRepository Teacher => _serviceProvider.GetService<ITeacherRepository>();
 

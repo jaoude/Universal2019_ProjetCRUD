@@ -18,6 +18,18 @@ namespace MultiGrain.BLL.Helpers
 
             CreateMap<ActionPlan, ActionPlanDto>();
             CreateMap<CreateActionPlanDto, ActionPlan>();
+
+            CreateMap<Catalog, CatalogDto>();
+            CreateMap<CreateCatalogDto, Catalog>();
+
+            CreateMap<Institution, InstitutionDto>();
+            CreateMap<CreateInstitutionDto, Institution>();
+
+            CreateMap<Programm, ProgrammDto>();
+            CreateMap<CreateProgrammDto, Programm>();
+
+            CreateMap<TeachingUnit,TeachingUnitDto >();
+            CreateMap<CreateTeachingUnitDto, TeachingUnit>();
         }
     }
 }

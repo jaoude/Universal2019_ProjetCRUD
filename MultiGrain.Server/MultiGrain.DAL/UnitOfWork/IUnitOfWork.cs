@@ -14,6 +14,7 @@ namespace MultiGrain.DAL.UnitOfWork
         IYearRepository Year { get; }
         ITypesRepository Types { get; }
         ITeachingUnitContentRepository TeachingUnitContent { get; }
+        ITeachingUnitRepository TeachingUnit{ get; }
         ITeachingRepository Teaching { get; }
         ITeacherRepository Teacher { get; }
         ISessionRepository Session { get; }

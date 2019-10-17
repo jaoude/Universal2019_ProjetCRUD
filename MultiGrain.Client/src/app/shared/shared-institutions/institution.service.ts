@@ -13,7 +13,7 @@ export class InstitutionService {
   list : Institution[];
 
   constructor(private http: HttpClient) { }
-  
+
   postInstitution() {
     return this.http.post(this.rootURL + '/institutions', this.formData);
   }

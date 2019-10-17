@@ -16,7 +16,7 @@ namespace MultiGrain.BLL.Services
 {
     public class ActionPlanService : ServiceBase, IActionPlanService
     {
-        public ActionPlanService(IUnitOfWork uow, IAutoMapperService mapper, ILogger<PersonService> logger) : base(uow, mapper, logger)
+        public ActionPlanService(IUnitOfWork uow, IAutoMapperService mapper, ILogger<ActionPlanService> logger) : base(uow, mapper, logger)
         {
         }
 
