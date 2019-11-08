@@ -1,12 +1,39 @@
+<style>
+    h1{
+      text-align : center;
+      margin-right : 32px;
+    }
+    
+    button{
+    background: #ffffff;
+    color: #000000 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 4px solid #193bad !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+      position: absolute;
+      top: 32px;
+      right: 32px;
+    }
+      </style>
+
 <div class="jumbtron">
-  <h1 class="display-4 text-center">Person Register</h1>
-  <hr>
-  <div class="row">
-    <div class="col-md-5">
-      <app-person></app-person>
-    </div>
-    <div class="col-md-7">
-      <app-person-list></app-person-list>
+    <h1 >Person Register</h1>
+    <button  *ngIf="iscol2" (click)="toggle2()"> Add Person </button>
+    <button  *ngIf="!iscol2" (click)="toggle2()"> Back to list view </button>
+    <hr>
+    <div>
+      <div class ="row" *ngIf="!iscol2">
+          <div class="col-md-5"> 
+            <app-person></app-person>
+          </div>
+          <div class="col-md-7">
+            <app-person-list></app-person-list>
+          </div>
+      </div>
+      <div *ngIf="iscol2">
+          <app-person-list></app-person-list>
+      </div>
     </div>
   </div>
-</div>

@@ -1,12 +1,39 @@
+<style>
+h1{
+  text-align : center;
+  margin-right : 32px;
+}
+
+button{
+background: #ffffff;
+color: #000000 !important;
+text-transform: uppercase;
+text-decoration: none;
+border: 4px solid #193bad !important;
+display: inline-block;
+transition: all 0.4s ease 0s;
+  position: absolute;
+  top: 32px;
+  right: 32px;
+}
+  </style>
+
 <div class="jumbtron">
-    <h1 class="display-4 text-center">Institution Register</h1>
+    <h1 >Institution Register</h1>
+    <button  *ngIf="iscol" (click)="toggle()"> Add Institution </button>
+    <button  *ngIf="!iscol" (click)="toggle()"> Back to list view </button>
     <hr>
-    <div class="row">
-      <div class="col-md-5">
-        <app-institution></app-institution>
+    <div>
+      <div class ="row" *ngIf="!iscol">
+          <div class="col-md-5"> 
+            <app-institution></app-institution>
+          </div>
+          <div class="col-md-7">
+            <app-institution-list></app-institution-list>
+          </div>
       </div>
-      <div class="col-md-7">
-        <app-institution-list></app-institution-list>
+      <div *ngIf="iscol">
+          <app-institution-list></app-institution-list>
       </div>
     </div>
   </div>

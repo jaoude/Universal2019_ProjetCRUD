@@ -6,9 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class InstitutionsComponent implements OnInit {
-
+  iscol : boolean = true;
   constructor() { }
 
+  toggle(){
+    this.iscol = !this.iscol;
+  }
   ngOnInit() {
   }
 

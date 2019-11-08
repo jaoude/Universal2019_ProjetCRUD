@@ -1,6 +1,13 @@
 
 
 <table class="table table-hover">
+    <tr>
+      <td><b>Lecture Duration</b></td>
+      <td><b>Mission</b></td>
+      <td><b>Signature</b></td>
+      <td><b>Title</b></td>
+      <td><b>Vision</b></td>
+    </tr>
     <tr *ngFor="let pd2 of service.list">
       <td (click)="populateForm(pd2)">{{pd2.LectureDuration}}</td>
       <td (click)="populateForm(pd2)">{{pd2.mission}}</td>

@@ -9,7 +9,7 @@ export class PersonsService {
 
   formData: Person;
   //API needed from backend for Persons
-  readonly rootURL = 'http://localhost:59035/api';
+  readonly rootURL = 'https://localhost:44368/api';
   list : Person[];
 
   constructor(private http: HttpClient) { }

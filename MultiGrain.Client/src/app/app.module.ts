@@ -8,8 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-import { AppRoutingModule, routingComponent} from './app-routing.module';
-
 
 import { InstitutionsComponent } from './institutions/institutions.component';
 import { InstitutionComponent} from './institutions/institution/institution.component';
@@ -22,13 +20,21 @@ import { PersonListComponent } from './persons/person-list/person-list.component
 import { PersonsService } from './shared/shared-persons/persons.service';
 import { UniquePipe } from './filter';
 import { UploadComponent } from './upload/upload.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { CustomMaterialModule } from './core/material.module';
+import { RouterModule, Routes } from '@angular/router';
 
-
+const appRoutes: Routes = [
+  { path: '', component: InstitutionsComponent, data: { title: 'Inst' } },
+  { path: 'institutions', component: InstitutionsComponent, data: { title: 'Institutions' } },
+  { path: 'persons', component: PersonsComponent, data: { title: 'Persons' } },
+  { path: 'file', component: UploadComponent, data: { title: 'Persons' } }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponent,
+    
     InstitutionsComponent,
     InstitutionComponent,
     InstitutionListComponent,
@@ -36,7 +42,8 @@ import { UploadComponent } from './upload/upload.component';
     PersonComponent,
     PersonListComponent,
     UniquePipe,
-    UploadComponent
+    UploadComponent,
+    NavigationComponent
   
   ],
   imports: [
@@ -44,9 +51,14 @@ import { UploadComponent } from './upload/upload.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
+   
     ReactiveFormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    CustomMaterialModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { useHash: true } // <-- debugging purposes only
+    ),
   ],
   providers: [InstitutionService,PersonsService],
   bootstrap: [AppComponent]
