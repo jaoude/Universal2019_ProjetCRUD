@@ -14,6 +14,7 @@ export class DocumentComponent implements OnInit {
 
   ngOnInit() {
     this.resetForm();
+    this.service.getInst();
   }
 
   resetForm(form?: NgForm) {

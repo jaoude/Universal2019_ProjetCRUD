@@ -30,7 +30,7 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-          <i class="fas fa-signature" [class.green-icon]="NameFr.valid" [class.red-icon]="NameFr.invalid && sNameFr.touched"></i>
+          <i class="fas fa-signature" [class.green-icon]="NameFr.valid" [class.red-icon]="NameFr.invalid && NameFr.touched"></i>
         </div>
       </div>
       <input name="NameFr" #NameFr="ngModel" [(ngModel)]="service.formData.NameFr" 
@@ -39,23 +39,23 @@
   </div>
 
   <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text bg-white">
-            <i  class="fas fa-trophy" [class.green-icon]="Institution.valid" [class.red-icon]="Institution.invalid && Institution.touched"></i>
-          </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i  class="fas fa-trophy" [class.green-icon]="Institution.valid" [class.red-icon]="Institution.invalid && Institution.touched"></i>
         </div>
-        <select required name="Institution" 
-                      #Institution="ngModel" 
-                      class="form-control" [(ngModel)]="service.formData.Institution">  
-                 <option value="" selected disabled> <i>Select Institution</i></option> 
-                  <option *ngFor="let x1 of service.list | unique"  
-                          [ngValue]="x1.Institution">  
-                      {{x1.institution}}  
-                  </option>  
-              </select>
       </div>
+      <select required name="Institution" 
+                    #Institution="ngModel" 
+                    class="form-control" [(ngModel)]="service.formData.Institution">  
+               <option value="" selected disabled> <i>Select Institution</i></option> 
+                <option *ngFor="let x2 of service.listInst | unique"  
+                        [ngValue]="x2.signature">  
+                    {{x2.signature}}  
+                </option>  
+            </select>
     </div>
+  </div>
     
     <span > <b> Upload your file: </b></span><br/>
     <div class="row" style="margin-bottom:15px;">
@@ -72,6 +72,7 @@
         </span>
       </div>
     </div>
+
 
   <div class="form-group">
     <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid" ><i class="fas fa-database"></i> Submit</button>

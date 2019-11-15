@@ -9,7 +9,8 @@ const newLocal = "/Institutions";
 export class InstitutionService {
   formData: Institution;
   //API needed from backend for Institutions
-  readonly rootURL = "https://localhost:44368/api";
+  readonly rootURL = "http://localhost:59035/api";
+
   list: Institution[];
 
   constructor(private http: HttpClient) {}
@@ -32,5 +33,6 @@ export class InstitutionService {
       .get(this.rootURL + newLocal)
       .toPromise()
       .then(res => (this.list = res as Institution[]));
+    
   }
 }

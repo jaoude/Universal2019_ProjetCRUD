@@ -15,6 +15,7 @@ export class PersonComponent implements OnInit {
 
   ngOnInit() {
     this.resetForm();
+    this.service.getInst();
   }
 
   resetForm(form?: NgForm) {
@@ -25,7 +26,8 @@ export class PersonComponent implements OnInit {
       FirstName: '' ,
       LastName: '',
       Phone: '',
-      Remarks: ''
+      Remarks: '',
+      Institution: ''
     }
   }
   onSubmit(form: NgForm) {

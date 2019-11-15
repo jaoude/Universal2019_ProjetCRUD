@@ -14,6 +14,7 @@ export class ProgramComponent implements OnInit {
 
   ngOnInit() {
     this.resetForm();
+    this.service.getInst();
   }
 
   resetForm(form?: NgForm) {
