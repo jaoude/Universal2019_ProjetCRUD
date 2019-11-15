@@ -1,23 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { ProgramService } from 'src/app/shared/shared-programs/program.service';
 import { ToastrService } from 'ngx-toastr';
-import { Person } from 'src/app/shared/shared-persons/persons.model';
-import { PersonsService } from 'src/app/shared/shared-persons/persons.service';
-
+import { Program } from 'src/app/shared/shared-programs/program.model';
 @Component({
-  selector: 'app-person-list',
-  templateUrl: './person-list.component.html',
+  selector: 'app-program-list',
+  templateUrl: './program-list.component.html',
   styles: []
 })
-export class PersonListComponent implements OnInit {
+export class ProgramListComponent implements OnInit {
 
-  constructor(private service: PersonsService,
+  constructor(private service: ProgramService,
     private toastr: ToastrService) { }
 
   ngOnInit() {
     
     this.service.refreshList();
   }
-  populateForm(pd: Person) {
+  populateForm(pd: Program) {
   debugger;
    this.service.formData = Object.assign({}, pd);
   }
@@ -28,7 +27,7 @@ export class PersonListComponent implements OnInit {
         .subscribe(res => {
           debugger;
           this.service.refreshList();
-          this.toastr.warning('Deleted successfully', 'Person Register');
+          this.toastr.warning('Deleted successfully', 'Program Register');
         },
           err => {
             debugger;

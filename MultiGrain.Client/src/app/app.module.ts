@@ -23,12 +23,22 @@ import { UploadComponent } from './upload/upload.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { CustomMaterialModule } from './core/material.module';
 import { RouterModule, Routes } from '@angular/router';
+import { DocumentsComponent } from './documents/documents.component';
+import { DocumentComponent } from './documents/document/document.component';
+import { DocumentListComponent } from './documents/document-list/document-list.component';
+import { DocumentService } from './shared/shared-documents/document.service';
+import { ProgramsComponent } from './programs/programs.component';
+import { ProgramComponent } from './programs/program/program.component';
+import { ProgramListComponent } from './programs/program-list/program-list.component';
+import { ProgramService } from './shared/shared-programs/program.service';
 
 const appRoutes: Routes = [
   { path: '', component: InstitutionsComponent, data: { title: 'Inst' } },
   { path: 'institutions', component: InstitutionsComponent, data: { title: 'Institutions' } },
   { path: 'persons', component: PersonsComponent, data: { title: 'Persons' } },
-  { path: 'file', component: UploadComponent, data: { title: 'Persons' } }
+  { path: 'program', component: ProgramsComponent, data: { title: 'Programs' } },
+  { path: 'file', component: DocumentsComponent, data: { title: 'Documents' } }
+ 
 ];
 
 @NgModule({
@@ -43,7 +53,13 @@ const appRoutes: Routes = [
     PersonListComponent,
     UniquePipe,
     UploadComponent,
-    NavigationComponent
+    NavigationComponent,
+    DocumentsComponent,
+    DocumentComponent,
+    DocumentListComponent,
+    ProgramsComponent,
+    ProgramComponent,
+    ProgramListComponent
   
   ],
   imports: [
@@ -60,7 +76,7 @@ const appRoutes: Routes = [
       { useHash: true } // <-- debugging purposes only
     ),
   ],
-  providers: [InstitutionService,PersonsService],
+  providers: [InstitutionService,PersonsService,DocumentService,ProgramService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

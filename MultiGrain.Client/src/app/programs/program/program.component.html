@@ -1,0 +1,117 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="Id" [value]="service.formData.Id">
+  
+  <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-info" [class.green-icon]="Credits.valid" [class.red-icon]="Credits.invalid && Credits.touched"></i>
+          </div>
+        </div>
+        <input name="Credits"  #Credits="ngModel" [(ngModel)]="service.formData.Credits" 
+        class="form-control" placeholder="Credits" >
+      </div>
+    </div>
+  
+  
+    <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-info"  [class.green-icon]="Admission.valid" [class.red-icon]="Admission.invalid && Admission.touched"></i>
+            </div>
+          </div>
+          <input name="Admission" #Admission="ngModel" [(ngModel)]="service.formData.Admission" 
+          class="form-control" placeholder="Admission" required maxlength="50" minlength="0">
+        </div>
+      </div>
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i  class="fas fa-phone-square" [class.green-icon]="Code.valid" [class.red-icon]="Code.invalid && Code.touched"></i>
+          </div>
+        </div>
+        <input name="Code" #Code="ngModel" [(ngModel)]="service.formData.Code" 
+        class="form-control" placeholder="Code" required  type = "number" maxlength="50" minlength="0">
+      </div>
+    </div>
+  
+    <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i  class="fas fa-pen"  [class.green-icon]="EtudesSuperieures.valid" [class.red-icon]="EtudesSuperieures.invalid && EtudesSuperieures.touched"></i>
+            </div>
+          </div>
+          <input name="EtudesSuperieures" #EtudesSuperieures="ngModel" [(ngModel)]="service.formData.EtudesSuperieures" 
+          class="form-control" placeholder="Etudes Superieures" required maxlength="100" minlength="0">
+        </div>
+      </div>
+
+      <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text bg-white">
+                <i  class="fas fa-pen"  [class.green-icon]="ObjectivesEtDebouches.valid" [class.red-icon]="ObjectivesEtDebouches.invalid && ObjectivesEtDebouches.touched"></i>
+              </div>
+            </div>
+            <input name="ObjectivesEtDebouches" #ObjectivesEtDebouches="ngModel" [(ngModel)]="service.formData.ObjectivesEtDebouches" 
+            class="form-control" placeholder="Objectives Et Debouches" required maxlength="100" minlength="0">
+          </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                  <i  class="fas fa-pen"  [class.green-icon]="Title.valid" [class.red-icon]="Title.invalid && Title.touched"></i>
+                </div>
+              </div>
+              <input name="Title" #Title="ngModel" [(ngModel)]="service.formData.Title" 
+              class="form-control" placeholder="Titre" required maxlength="100" minlength="0">
+            </div>
+          </div>
+
+          <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text bg-white">
+                    <i  class="fas fa-pen"  [class.green-icon]="TitleAr.valid" [class.red-icon]="TitleAr.invalid && TitleAr.touched"></i>
+                  </div>
+                </div>
+                <input name="TitleAr" #TitleAr="ngModel" [(ngModel)]="service.formData.TitleAr" 
+                class="form-control" placeholder="Titre Arabe" required maxlength="100" minlength="0">
+              </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                      <i  class="fas fa-pen"  [class.green-icon]="TitleEn.valid" [class.red-icon]="TitleEn.invalid && TitleEn.touched"></i>
+                    </div>
+                  </div>
+                  <input name="TitleEn" #TitleEn="ngModel" [(ngModel)]="service.formData.TitleEn" 
+                  class="form-control" placeholder="Titre Anglais" required maxlength="100" minlength="0">
+                </div>
+              </div>
+
+              <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text bg-white">
+                        <i  class="fas fa-pen"  [class.green-icon]="Institution.valid" [class.red-icon]="Institution.invalid && Institution.touched"></i>
+                      </div>
+                    </div>
+                    <input name="Institution" #Institution="ngModel" [(ngModel)]="service.formData.Institution" 
+                    class="form-control" placeholder="Institution" required maxlength="100" minlength="0">
+                  </div>
+                </div>
+
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid" ><i class="fas fa-database"></i> Submit</button>
+    </div>
+  </form>
+  

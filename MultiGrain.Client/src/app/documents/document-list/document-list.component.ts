@@ -1,23 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { DocumentService } from 'src/app/shared/shared-documents/document.service';
 import { ToastrService } from 'ngx-toastr';
-import { Person } from 'src/app/shared/shared-persons/persons.model';
-import { PersonsService } from 'src/app/shared/shared-persons/persons.service';
-
+import { Document_Class } from 'src/app/shared/shared-documents/document.model';
 @Component({
-  selector: 'app-person-list',
-  templateUrl: './person-list.component.html',
+  selector: 'app-document-list',
+  templateUrl: './document-list.component.html',
   styles: []
 })
-export class PersonListComponent implements OnInit {
-
-  constructor(private service: PersonsService,
+export class DocumentListComponent implements OnInit {
+  constructor(private service: DocumentService,
     private toastr: ToastrService) { }
 
   ngOnInit() {
     
     this.service.refreshList();
   }
-  populateForm(pd: Person) {
+  populateForm(pd: Document_Class) {
   debugger;
    this.service.formData = Object.assign({}, pd);
   }
@@ -28,7 +26,7 @@ export class PersonListComponent implements OnInit {
         .subscribe(res => {
           debugger;
           this.service.refreshList();
-          this.toastr.warning('Deleted successfully', 'Person Register');
+          this.toastr.warning('Deleted successfully', 'Document Register');
         },
           err => {
             debugger;
@@ -36,4 +34,5 @@ export class PersonListComponent implements OnInit {
           })
     }
   }
+
 }
