@@ -1,22 +1,22 @@
-
-
 <table class="table table-hover">
-    <tr>
-      <td><b>Lecture Duration</b></td>
-      <td><b>Mission</b></td>
-      <td><b>Signature</b></td>
-      <td><b>Title</b></td>
-      <td><b>Vision</b></td>
-    </tr>
-    <tr *ngFor="let pd2 of service.list">
-      <td (click)="populateForm(pd2)">{{pd2.LectureDuration}}</td>
-      <td (click)="populateForm(pd2)">{{pd2.mission}}</td>
-      <td (click)="populateForm(pd2)">{{pd2.signature}}</td>
-      <td (click)="populateForm(pd2)">{{pd2.title}}</td>
-      <td (click)="populateForm(pd2)">{{pd2.vision}}</td>
-      <td>
-        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd2.InstId)"></i>
-      </td>
-    </tr>
-  </table>
-
+  <tr>
+    <td><b>Lecture Duration</b></td>
+    <td><b>Mission</b></td>
+    <td><b>Signature</b></td>
+    <td><b>Title</b></td>
+    <td><b>Vision</b></td>
+  </tr>
+  <tr *ngFor="let pd2 of service.list">
+    <td (click)="populateForm(pd2)">{{ pd2.lectureDuration }}</td>
+    <td (click)="populateForm(pd2)">{{ pd2.mission }}</td>
+    <td (click)="populateForm(pd2)">{{ pd2.signature }}</td>
+    <td (click)="populateForm(pd2)">{{ pd2.title }}</td>
+    <td (click)="populateForm(pd2)">{{ pd2.vision }}</td>
+    <td>
+      <i
+        class="far fa-trash-alt fa-lg text-danger"
+        (click)="onDelete(pd2.InstId)"
+      ></i>
+    </td>
+  </tr>
+</table>

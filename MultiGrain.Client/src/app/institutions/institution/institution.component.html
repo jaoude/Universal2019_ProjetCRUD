@@ -1,77 +1,138 @@
 <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-    <input type="hidden" name="InstId" [value]="service.formData.InstId">
+  <input type="hidden" name="InstId" [value]="service.formData.InstId" />
 
   <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text bg-white">
-            <i class="fas fa-stopwatch" [class.green-icon]="LectureDuration.valid" [class.red-icon]="LectureDuration.invalid && LectureDuration.touched"></i>
-          </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i
+            class="fas fa-stopwatch"
+            [class.green-icon]="LectureDuration.valid"
+            [class.red-icon]="
+              LectureDuration.invalid && LectureDuration.touched
+            "
+          ></i>
         </div>
-        <input name="LectureDuration"  #LectureDuration="ngModel" [(ngModel)]="service.formData.LectureDuration" 
-        class="form-control" placeholder="Lecture Duration" required type = "number" min="0" max="100" >
       </div>
+      <input
+        name="LectureDuration"
+        #LectureDuration="ngModel"
+        [(ngModel)]="service.formData.LectureDuration"
+        class="form-control"
+        placeholder="Lecture Duration"
+        required
+        type="number"
+        min="0"
+        max="100"
+      />
     </div>
+  </div>
 
-
-    <div class="form-group">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <div class="input-group-text bg-white">
-              <i class="fas fa-chevron-circle-down"  [class.green-icon]="mission.valid" [class.red-icon]="missioninvalid && mission.touched"></i>
-            </div>
-          </div>
-          <input name="mission" #mission="ngModel" [(ngModel)]="service.formData.mission" 
-          class="form-control" placeholder="Mission" required maxlength="50" minlength="0">
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i
+            class="fas fa-chevron-circle-down"
+            [class.green-icon]="mission.valid"
+            [class.red-icon]="missioninvalid && mission.touched"
+          ></i>
         </div>
       </div>
-
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text bg-white">
-            <i class="fas fa-signature" [class.green-icon]="signature.valid" [class.red-icon]="signature.invalid && signature.touched"></i>
-          </div>
-        </div>
-        <input name="signature" #signature="ngModel" [(ngModel)]="service.formData.signature" 
-        class="form-control" placeholder="Signature" required maxlength="50" minlength="0">
-      </div>
+      <input
+        name="mission"
+        #mission="ngModel"
+        [(ngModel)]="service.formData.mission"
+        class="form-control"
+        placeholder="Mission"
+        required
+        maxlength="50"
+        minlength="0"
+      />
     </div>
+  </div>
 
-    <div class="form-group">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <div class="input-group-text bg-white">
-              <i class="fas fa-heading"  [class.green-icon]="title.valid" [class.red-icon]="title.invalid && title.touched"></i>
-            </div>
-          </div>
-          <input name="title" #title="ngModel" [(ngModel)]="service.formData.title" 
-          class="form-control" placeholder="Title" required maxlength="100" minlength="0">
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i
+            class="fas fa-signature"
+            [class.green-icon]="signature.valid"
+            [class.red-icon]="signature.invalid && signature.touched"
+          ></i>
         </div>
       </div>
-    
-    
-      
-    <div class="form-group">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <div class="input-group-text bg-white">
-              <i  class="fas fa-trophy" [class.green-icon]="vision.valid" [class.red-icon]="vision.invalid && vision.touched"></i>
-            </div>
-          </div>
-          <select required name="vision" 
-                        #vision="ngModel" 
-                        class="form-control" [(ngModel)]="service.formData.vision">  
-                   <option value="" selected disabled> <i>Select Vision</i></option> 
-                    <option *ngFor="let x of service.list | unique"  
-                            [ngValue]="x.vision">  
-                        {{x.vision}}  
-                    </option>  
-                </select>
-        </div>
-      </div>
-
-    <div class="form-group">
-      <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid" ><i class="fas fa-database"></i> Submit</button>
+      <input
+        name="signature"
+        #signature="ngModel"
+        [(ngModel)]="service.formData.signature"
+        class="form-control"
+        placeholder="Signature"
+        required
+        maxlength="50"
+        minlength="0"
+      />
     </div>
-  </form>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i
+            class="fas fa-heading"
+            [class.green-icon]="title.valid"
+            [class.red-icon]="title.invalid && title.touched"
+          ></i>
+        </div>
+      </div>
+      <input
+        name="title"
+        #title="ngModel"
+        [(ngModel)]="service.formData.title"
+        class="form-control"
+        placeholder="Title"
+        required
+        maxlength="100"
+        minlength="0"
+      />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i
+            class="fas fa-trophy"
+            [class.green-icon]="vision.valid"
+            [class.red-icon]="vision.invalid && vision.touched"
+          ></i>
+        </div>
+      </div>
+      <select
+        required
+        name="vision"
+        #vision="ngModel"
+        class="form-control"
+        [(ngModel)]="service.formData.vision"
+      >
+        <option value="" selected disabled> <i>Select Vision</i></option>
+        <option *ngFor="let x of service.list | unique" [ngValue]="x.vision">
+          {{ x.vision }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button
+      class="btn btn-success btn-lg btn-block"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      <i class="fas fa-database"></i> Submit
+    </button>
+  </div>
+</form>
