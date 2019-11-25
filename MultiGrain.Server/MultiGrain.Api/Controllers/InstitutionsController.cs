@@ -24,15 +24,29 @@ namespace MultiGrain.Api.Controllers
             _logger = logger;
         }
 
+        [HttpDelete("{id}")]
+      
+        public async Task<IActionResult> DeleteInstitution(int id, CancellationToken ct)
+        {
+            var action = await _instituService.DeleteInstitutionAsync(id, ct);
+            return Ok(action);
+        }
 
-        [HttpGet]
-        //[Route("{id}", Name = "GetInstitution")]
+
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetInstitution(CancellationToken ct)
         {
             var action = await _instituService.GetInstitutionAsync(ct);
             return Ok(action);
         }
-            
+
+        [HttpGet]
+        public async Task<IActionResult> GetInstitutions(CancellationToken ct)
+        {
+            var action = await _instituService.GetInstitutionAsync(ct);
+            return Ok(action);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> CreateInstitution([FromBody] CreateInstitutionDto ins, CancellationToken ct)
@@ -43,8 +57,6 @@ namespace MultiGrain.Api.Controllers
                 return UnprocessableEntity();
             else
                 return CreatedAtRoute("GetInstitution", new { insti }, ins);
-
-
         }
     }
 }

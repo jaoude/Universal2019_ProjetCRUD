@@ -44,6 +44,15 @@ namespace MultiGrain.BLL.Services
             else
                 return null;
         }
+
+        public async Task<bool> DeleteInstitutionAsync(int id, CancellationToken ct)
+        {
+            _uow.Institutions.Remove(id);
+            if (await _uow.SaveChangesAsync(ct) > 0)
+                return true;
+            else
+                return false;
+        }
     }
 
 }

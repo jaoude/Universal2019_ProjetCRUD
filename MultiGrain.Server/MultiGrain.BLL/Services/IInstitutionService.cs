@@ -11,6 +11,6 @@ namespace MultiGrain.BLL.Services
         Task<IEnumerable<InstitutionDto>> GetInstitutionAsync(CancellationToken ct);
         Task<InstitutionDto> GetInstitutionAsync(Guid id, CancellationToken ct);
         Task<int?> CreateInstitutionAsync(CreateInstitutionDto CreateInstitutionDto, CancellationToken ct);
-
+        Task<bool> DeleteInstitutionAsync(int id, CancellationToken ct);
     }
 }

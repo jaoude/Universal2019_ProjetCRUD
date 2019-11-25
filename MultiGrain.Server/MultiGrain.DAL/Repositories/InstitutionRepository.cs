@@ -28,7 +28,7 @@ namespace MultiGrain.DAL.Repositories
 
         public void CreateInstitution(Institution InstitutionEntity)
         {
-            _db.Set<Institution>().Add(InstitutionEntity);
+            _db.Set<Institution>().Remove(InstitutionEntity);
         }
     }
 }
