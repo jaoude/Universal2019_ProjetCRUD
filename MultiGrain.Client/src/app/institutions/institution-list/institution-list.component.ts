@@ -13,7 +13,7 @@ export class InstitutionListComponent implements OnInit {
     private service: InstitutionService,
     private toastr: ToastrService
   ) {
-    alert();
+  
   }
 
   ngOnInit() {

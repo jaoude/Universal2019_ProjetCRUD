@@ -7,17 +7,17 @@
         <div class="input-group-text bg-white">
           <i
             class="fas fa-stopwatch"
-            [class.green-icon]="LectureDuration.valid"
+            [class.green-icon]="lectureDuration.valid"
             [class.red-icon]="
-              LectureDuration.invalid && LectureDuration.touched
+              lectureDuration.invalid && lectureDuration.touched
             "
           ></i>
         </div>
       </div>
       <input
-        name="LectureDuration"
-        #LectureDuration="ngModel"
-        [(ngModel)]="service.formData.LectureDuration"
+        name="lectureDuration"
+        #lectureDuration="ngModel"
+        [(ngModel)]="service.formData.lectureDuration"
         class="form-control"
         placeholder="Lecture Duration"
         required

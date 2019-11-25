@@ -22,7 +22,7 @@ export class InstitutionComponent implements OnInit {
     if (form != null) form.form.reset();
     this.service.formData = {
       InstId: 0,
-      LectureDuration: 0,
+      lectureDuration: 0,
       mission: "",
       signature: "",
       title: "",
