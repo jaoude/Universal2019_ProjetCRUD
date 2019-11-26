@@ -26,9 +26,9 @@ namespace MultiGrain.DAL.Repositories
             return await _db.Set<Institution>().ToListAsync(ct);
         }
 
-        public void CreateInstitution(Institution InstitutionEntity)
+        public async Task CreateInstitution(Institution InstitutionEntity)
         {
-            _db.Set<Institution>().Remove(InstitutionEntity);
+            await _db.Set<Institution>().AddAsync(InstitutionEntity);
         }
     }
 }

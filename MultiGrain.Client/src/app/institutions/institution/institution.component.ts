@@ -21,7 +21,7 @@ export class InstitutionComponent implements OnInit {
   resetForm(form?: NgForm) {
     if (form != null) form.form.reset();
     this.service.formData = {
-      InstId: 0,
+      id: 0,
       lectureDuration: 0,
       mission: "",
       signature: "",
@@ -30,7 +30,7 @@ export class InstitutionComponent implements OnInit {
     };
   }
   onSubmit(form: NgForm) {
-    if (this.service.formData.InstId == 0) this.insertRecord(form);
+    if (this.service.formData.id == 0) this.insertRecord(form);
     else this.updateRecord(form);
   }
 

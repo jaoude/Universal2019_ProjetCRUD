@@ -37,7 +37,7 @@ namespace MultiGrain.BLL.Services
         public async Task<int?> CreateInstitutionAsync(CreateInstitutionDto CreateInstitutionDto, CancellationToken ct)
         {
             Institution InstitutionEntity = _mapper.Mapper.Map<Institution>(CreateInstitutionDto);
-            _uow.Institutions.CreateInstitution(InstitutionEntity);
+            await _uow.Institutions.CreateInstitution(InstitutionEntity);
 
             if (await _uow.SaveChangesAsync(ct) > 0)
                 return InstitutionEntity.Id;// personsEntity.Id;

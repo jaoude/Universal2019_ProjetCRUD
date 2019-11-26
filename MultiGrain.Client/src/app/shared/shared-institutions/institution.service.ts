@@ -9,9 +9,7 @@ const newLocal = "/Institutions";
 export class InstitutionService {
   formData: Institution;
   //API needed from backend for Institutions
-  //http://localhost:59035/api
-  readonly rootURL = "https://localhost:44368/api";
-
+  readonly rootURL = "http://localhost:59035/api";
 
   list: Institution[];
 
@@ -22,7 +20,7 @@ export class InstitutionService {
   }
   putInstitution() {
     return this.http.put(
-      this.rootURL + "/Institutions/" + this.formData.InstId,
+      this.rootURL + "/Institutions/" + this.formData.id,
       this.formData
     );
   }
@@ -35,6 +33,5 @@ export class InstitutionService {
       .get(this.rootURL + newLocal)
       .toPromise()
       .then(res => (this.list = res as Institution[]));
-    
   }
 }
