@@ -8,6 +8,7 @@ namespace MultiGrain.BLL.Services
 {
     public interface IProgrammService : IServiceBase
     {
+        Task<List<ProgrammDto>> GetProgrammsByInstitutionIdAsync(int instId, CancellationToken ct);
         Task<IEnumerable<ProgrammDto>> GetProgrammAsync(CancellationToken ct);
         Task<ProgrammDto> GetProgrammAsync(Guid id, CancellationToken ct);
         Task<int?> CreateProgrammAsync(CreateProgrammDto CreateProgrammDto, CancellationToken ct);

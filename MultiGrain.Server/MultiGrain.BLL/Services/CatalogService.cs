@@ -27,23 +27,23 @@ namespace MultiGrain.BLL.Services
             return CatalogDto.ToList();
         }
 
-        public async Task<CatalogDto> GetCatalogAsync(Guid id, CancellationToken ct)
+        public async Task<CatalogDto> GetCatalogAsync(int id, CancellationToken ct)
         {
             Catalog CatalogEntity = await _uow.Catalog.GetCatalogAsync(id, ct);
             CatalogDto CatalogDto = _mapper.Mapper.Map<CatalogDto>(CatalogEntity);
             return CatalogDto;
         }
 
-        public async Task<int?> CreateCatalogAsync(CreateCatalogDto CreateCatalogDto, CancellationToken ct)
-        {
-            Catalog CatalogEntity = _mapper.Mapper.Map<Catalog>(CreateCatalogDto);
-            _uow.Catalog.CreateCatalog(CatalogEntity);
+        //public async Task<int?> CreateCatalogAsync(CreateCatalogDto CreateCatalogDto, CancellationToken ct)
+        //{
+        //    Catalog CatalogEntity = _mapper.Mapper.Map<Catalog>(CreateCatalogDto);
+        //    _uow.Catalog.CreateCatalog(CatalogEntity);
 
-            if (await _uow.SaveChangesAsync(ct) > 0)
-                return CatalogEntity.Id;
-            else
-                return null;
-        }
+        //    if (await _uow.SaveChangesAsync(ct) > 0)
+        //        return CatalogEntity.Id;
+        //    else
+        //        return null;
+        //}
 
     }
 

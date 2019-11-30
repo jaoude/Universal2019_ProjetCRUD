@@ -25,6 +25,16 @@ namespace MultiGrain.Api.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
+        [Route("{instId}")]
+        public async Task<IActionResult> GetProgrammsByInstitutionId(int instId, CancellationToken ct)
+        {
+            var Programm = await _ProgrammService.GetProgrammsByInstitutionIdAsync(instId, ct);
+            return Ok(Programm);
+            //_logger.LogInformation("called GetActionPlan");
+            //var action = await _actionService.GetActionPlanAsync(id, ct);
+            //return Ok(action);
+        }
 
         [HttpGet]
         //[Route("{id}", Name = "GetActionPlan")]
@@ -46,8 +56,6 @@ namespace MultiGrain.Api.Controllers
                 return UnprocessableEntity();
             else
                 return CreatedAtRoute("GetProgramm", new { id }, Prog);
-
-
         }
     }
 }

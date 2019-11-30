@@ -7,6 +7,7 @@ namespace MultiGrain.BLL.Dtos
 {
     public class ProgrammDto
     {
+        public int Id { get; set; }
         public decimal Credits { get; set; }
 
         public string Admission { get; set; }

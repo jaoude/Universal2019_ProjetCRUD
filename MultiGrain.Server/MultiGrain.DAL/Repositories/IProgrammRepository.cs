@@ -12,5 +12,6 @@ namespace MultiGrain.DAL.Repositories
         Task<IEnumerable<Programm>> GetProgrammAsync(CancellationToken ct);
         Task<Programm> GetProgrammAsync(Guid id, CancellationToken ct);
         void CreateProgramm(Programm ProgrammEntity);
+        Task<List<Programm>> GetProgrammsByInstitutionIdAsync  (int instId, CancellationToken ct);
     }
 }

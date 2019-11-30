@@ -27,6 +27,13 @@ namespace MultiGrain.BLL.Services
             return ProgrammDto.ToList();
         }
 
+        public async Task<List<ProgrammDto>> GetProgrammsByInstitutionIdAsync(int instId, CancellationToken ct)
+        {
+            var ProgrammEntity = await _uow.Programm.GetProgrammsByInstitutionIdAsync(instId, ct);
+            var ProgrammDto = _mapper.Mapper.Map<List<ProgrammDto>>(ProgrammEntity);
+            return ProgrammDto;
+        }
+
         public async Task<ProgrammDto> GetProgrammAsync(Guid id, CancellationToken ct)
         {
             Programm ProgrammEntity = await _uow.Programm.GetProgrammAsync(id, ct);

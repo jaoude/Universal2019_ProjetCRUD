@@ -37,18 +37,18 @@ namespace MultiGrain.Api.Controllers
             //return Ok(action);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateCatalog([FromBody] CreateCatalogDto cat, CancellationToken ct)
-        {
-            // _logger.LogInformation("called CreatePerson {0}", person.ToString());
-            var cata = await _catalogService.CreateCatalogAsync(cat, ct);
-            if (cata == null)
-                return UnprocessableEntity();
-            else
-                return CreatedAtRoute("GetCatalog", new { cata }, cat);
+        //[HttpPost]
+        //public async Task<IActionResult> CreateCatalog([FromBody] CreateCatalogDto cat, CancellationToken ct)
+        //{
+        //    // _logger.LogInformation("called CreatePerson {0}", person.ToString());
+        //    var cata = await _catalogService.CreateCatalogAsync(cat, ct);
+        //    if (cata == null)
+        //        return UnprocessableEntity();
+        //    else
+        //        return CreatedAtRoute("GetCatalog", new { cata }, cat);
 
 
-        }
+        //}
     }
 }
 

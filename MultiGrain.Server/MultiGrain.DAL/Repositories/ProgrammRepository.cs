@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -30,6 +31,12 @@ namespace MultiGrain.DAL.Repositories
         public void CreateProgramm(Programm ProgrammEntity)
         {
             _db.Set<Programm>().Add(ProgrammEntity);
+        }
+
+        public async Task<List<Programm>> GetProgrammsByInstitutionIdAsync
+            (int instId, CancellationToken ct)
+        {
+            return await _db.Set<Programm>().Where(c => c.InstitutionId == instId).ToListAsync(ct);
         }
     }
 }
