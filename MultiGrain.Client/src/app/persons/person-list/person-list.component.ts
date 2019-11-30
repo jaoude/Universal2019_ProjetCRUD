@@ -28,7 +28,7 @@ export class PersonListComponent implements OnInit {
         .subscribe(res => {
           debugger;
           this.service.refreshList();
-          this.toastr.warning('Deleted successfully', 'Person Register');
+          this.toastr.warning('Deleted successfully', 'Catalog Register');
         },
           err => {
             debugger;

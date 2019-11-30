@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MultiGrain.BLL.Dtos;
+using MultiGrain.BLL.Helpers;
 using MultiGrain.BLL.Services;
+using MultiGrain.DAL.DBContext;
+using MultiGrain.DAL.Entities;
 using MultiGrain.DAL.Repositories;
 using MultiGrain.DAL.UnitOfWork;
 using System;
@@ -18,10 +22,13 @@ namespace MultiGrain.Api.Controllers
     {
         private readonly ILogger<InstitutionsController> _logger;
         private readonly IInstitutionService _instituService;
-        public InstitutionsController(ILogger<InstitutionsController> logger, IInstitutionService InstitutionService)
+        private readonly MultiGrainDbContext _context;
+        private readonly IAutoMapperService _mapper;
+        public InstitutionsController(ILogger<InstitutionsController> logger, IInstitutionService institutionService, IAutoMapperService mapper)
         {
-            _instituService = InstitutionService;
+            _instituService = institutionService;
             _logger = logger;
+            _mapper = mapper;
         }
 
         [HttpDelete("{id}")]
@@ -56,9 +63,51 @@ namespace MultiGrain.Api.Controllers
             if (insti == null)
                 return UnprocessableEntity();
             else
-                return CreatedAtRoute("GetInstitution", new { insti }, ins);
+                return Ok();
+        }
+       
+        [HttpPut("{id}")]
+        public async Task<IActionResult> CreateInstitution([FromBody] CreateInstitutionDto ins, int id, CancellationToken ct)
+        {
+                if (id != ins.id)
+                {
+                    return BadRequest();
+                }
+            else
+            {
+               await _instituService.UpdateInstitutionAsync(ins, ct);
+            }
+            return NoContent();
+            //    Institution inst = _mapper.Mapper.Map<Institution>(ins);
+            //// _context.Institutions.Update(inst);
+            //try
+            //{
+            //    _context.Entry<Institution>(inst).State = EntityState.Modified;
+            //}
+            //catch(Exception e)
+            //{
+                
+            //};
+            //    try
+            //    {
+            //        await _context.SaveChangesAsync();
+            //    }
+            //    catch (DbUpdateConcurrencyException)
+            //    {
+            //        if (!_context.Institutions.Any(c=> c.Id == id))
+            //        {
+            //            return NotFound();
+            //        }
+            //        else
+            //        {
+            //            throw;
+            //        }
+            //    }
+
+            //    return NoContent();
+            }
         }
     }
-}
+
 
 

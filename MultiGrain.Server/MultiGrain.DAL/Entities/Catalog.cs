@@ -23,8 +23,6 @@ namespace MultiGrain.DAL.Entities
         [ForeignKey("ProgrammId")]
         public  Programm Programm { get; set; }
 
-        public int? YearId { get; set; }
-        [ForeignKey("YearId")]
-        public Year Year{ get; set; }
+        public List<Year> Years{ get; set; }
     }
 }

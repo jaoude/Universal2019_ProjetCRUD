@@ -1,4 +1,6 @@
 ﻿using MultiGrain.BLL.Dtos;
+using MultiGrain.BLL.Dtos.Result;
+using MultiGrain.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -8,8 +10,8 @@ namespace MultiGrain.BLL.Services
 {
     public interface ICatalogService : IServiceBase
     {
-        Task<IEnumerable<CatalogDto>> GetCatalogAsync(CancellationToken ct);
-        Task<CatalogDto> GetCatalogAsync(int id, CancellationToken ct);
+        Task<IEnumerable<Catalog>> GetCatalogAsync(CancellationToken ct);
+        List<FullTeachingUnitDto> GetCatalog(int id);
         //Task<int?> CreateCatalogAsync(CreateCatalogDto CreateCatalognDto, CancellationToken ct);
 
     }

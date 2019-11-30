@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,13 +18,18 @@ namespace MultiGrain.DAL.Repositories
         {
         }
 
-        public async Task<Catalog> GetCatalogAsync(int id, CancellationToken ct)
+        public List<TeachingUnit> GetCatalog(int id)
         {
-            return await _db.Set<Catalog>()
-                .Include("Year")
-                .Include("Semester")
-                .Include("TeachingUnit")
-                .FirstOrDefaultAsync(c => c.Id == id, ct);
+
+            var catalog =  _db.Set<Catalog>().FirstOrDefault(c => c.Id == id);
+            var years = catalog.Years;
+            var semesters =  _db.Set<Semester>().Where(c => years.Contains(c.Year)).ToList();
+            semesters = years.SelectMany(c => c.Semesters).ToList();
+            ////var years = await _db.Set<Year>().Select(c => c.Catalogs).ToListAsync(ct);
+            //var tu = await _db.Set<TeachingUnit>().Select(c => c.SemesterId).ToListAsync(ct);
+            var result = _db.Set<Catalog>().FirstOrDefault(c => c.Id == id).Years
+                .SelectMany(c => c.Semesters).SelectMany(c => c.TeachingUnits).ToList();
+            return result;
         }
 
         public async Task<IEnumerable<Catalog>> GetCatalogAsync(CancellationToken ct)

@@ -29,7 +29,7 @@ namespace MultiGrain.DAL.Entities
         public string TeachingOutcomes { get; set; }
         public string Title { get; set; }
 
-        public int RequiredBy { get; set; }
+        public int? RequiredBy { get; set; }
         public List<Component> Components { get; set; }
         public List<TeachingUnitContent> TeachingUnitContents { get; set; }
         public List<Evaluation> Evaluations { get; set; }

@@ -30,5 +30,17 @@ namespace MultiGrain.DAL.Repositories
         {
             await _db.Set<Institution>().AddAsync(InstitutionEntity);
         }
+        public async Task UpdateInstitutionAsync(Institution ins, CancellationToken ct)
+        {
+            var originalEntity = await _db.Set<Institution>().FirstOrDefaultAsync(c => c.Id == ins.Id); 
+            if(originalEntity != null)
+            {
+                originalEntity.LectureDuration = ins.LectureDuration;
+                originalEntity.Mission = ins.Mission;
+                originalEntity.Signature = ins.Signature;
+                originalEntity.Vision = ins.Vision;
+                originalEntity.Title = ins.Title;
+            }
+        }
     }
 }

@@ -1,8 +1,9 @@
 export class Person {
     Id :number;
-    FirstName: string;
-    LastName: string;
-    Phone: string;
-    Remarks: string;
-    Institution: string;
+    semestre: number;
+    title: string;
+    credits: string;
+    mode: string;
+    cygle: string;
+    catalognumb: string;
 }

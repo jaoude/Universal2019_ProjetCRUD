@@ -5,10 +5,10 @@
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text bg-white">
-            <i class="fas fa-info" [class.green-icon]="Credits.valid" [class.red-icon]="Credits.invalid && Credits.touched"></i>
+            <i class="fas fa-info" [class.green-icon]="credits.valid" [class.red-icon]="credits.invalid && credits.touched"></i>
           </div>
         </div>
-        <input name="Credits"  #Credits="ngModel" [(ngModel)]="service.formData.Credits" 
+        <input name="credits"  #credits="ngModel" [(ngModel)]="service.formData.credits" 
         class="form-control" placeholder="Credits" >
       </div>
     </div>
@@ -18,11 +18,11 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
-              <i class="fas fa-info"  [class.green-icon]="Admission.valid" [class.red-icon]="Admission.invalid && Admission.touched"></i>
+              <i class="fas fa-info"  [class.green-icon]="admission.valid" [class.red-icon]="admission.invalid && admission.touched"></i>
             </div>
           </div>
-          <input name="Admission" #Admission="ngModel" [(ngModel)]="service.formData.Admission" 
-          class="form-control" placeholder="Admission" required maxlength="50" minlength="0">
+          <input name="admission" #admission="ngModel" [(ngModel)]="service.formData.admission" 
+          class="form-control" placeholder="admission" required maxlength="50" minlength="0">
         </div>
       </div>
   
@@ -30,11 +30,11 @@
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text bg-white">
-            <i  class="fas fa-phone-square" [class.green-icon]="Code.valid" [class.red-icon]="Code.invalid && Code.touched"></i>
+            <i  class="fas fa-phone-square" [class.green-icon]="code.valid" [class.red-icon]="code.invalid && code.touched"></i>
           </div>
         </div>
-        <input name="Code" #Code="ngModel" [(ngModel)]="service.formData.Code" 
-        class="form-control" placeholder="Code" required  type = "number" maxlength="50" minlength="0">
+        <input name="code" #code="ngModel" [(ngModel)]="service.formData.code" 
+        class="form-control" placeholder="Code" >
       </div>
     </div>
   
@@ -42,10 +42,10 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
-              <i  class="fas fa-pen"  [class.green-icon]="EtudesSuperieures.valid" [class.red-icon]="EtudesSuperieures.invalid && EtudesSuperieures.touched"></i>
+              <i  class="fas fa-pen"  [class.green-icon]="etudesSuperieures.valid" [class.red-icon]="etudesSuperieures.invalid && etudesSuperieures.touched"></i>
             </div>
           </div>
-          <input name="EtudesSuperieures" #EtudesSuperieures="ngModel" [(ngModel)]="service.formData.EtudesSuperieures" 
+          <input name="etudesSuperieures" #etudesSuperieures="ngModel" [(ngModel)]="service.formData.etudesSuperieures" 
           class="form-control" placeholder="Etudes Superieures" required maxlength="100" minlength="0">
         </div>
       </div>
@@ -54,10 +54,10 @@
           <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text bg-white">
-                <i  class="fas fa-pen"  [class.green-icon]="ObjectivesEtDebouches.valid" [class.red-icon]="ObjectivesEtDebouches.invalid && ObjectivesEtDebouches.touched"></i>
+                <i  class="fas fa-pen"  [class.green-icon]="objectivesEtDebouches.valid" [class.red-icon]="objectivesEtDebouches.invalid && objectivesEtDebouches.touched"></i>
               </div>
             </div>
-            <input name="ObjectivesEtDebouches" #ObjectivesEtDebouches="ngModel" [(ngModel)]="service.formData.ObjectivesEtDebouches" 
+            <input name="objectivesEtDebouches" #objectivesEtDebouches="ngModel" [(ngModel)]="service.formData.objectivesEtDebouches" 
             class="form-control" placeholder="Objectives Et Debouches" required maxlength="100" minlength="0">
           </div>
         </div>
@@ -66,10 +66,10 @@
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text bg-white">
-                  <i  class="fas fa-pen"  [class.green-icon]="Title.valid" [class.red-icon]="Title.invalid && Title.touched"></i>
+                  <i  class="fas fa-pen"  [class.green-icon]="title.valid" [class.red-icon]="title.invalid && title.touched"></i>
                 </div>
               </div>
-              <input name="Title" #Title="ngModel" [(ngModel)]="service.formData.Title" 
+              <input name="title" #title="ngModel" [(ngModel)]="service.formData.title" 
               class="form-control" placeholder="Titre" required maxlength="100" minlength="0">
             </div>
           </div>
@@ -78,10 +78,10 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <div class="input-group-text bg-white">
-                    <i  class="fas fa-pen"  [class.green-icon]="TitleAr.valid" [class.red-icon]="TitleAr.invalid && TitleAr.touched"></i>
+                    <i  class="fas fa-pen"  [class.green-icon]="titleAr.valid" [class.red-icon]="titleAr.invalid && titleAr.touched"></i>
                   </div>
                 </div>
-                <input name="TitleAr" #TitleAr="ngModel" [(ngModel)]="service.formData.TitleAr" 
+                <input name="titleAr" #titleAr="ngModel" [(ngModel)]="service.formData.titleAr" 
                 class="form-control" placeholder="Titre Arabe" required maxlength="100" minlength="0">
               </div>
             </div>
@@ -90,10 +90,10 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <div class="input-group-text bg-white">
-                      <i  class="fas fa-pen"  [class.green-icon]="TitleEn.valid" [class.red-icon]="TitleEn.invalid && TitleEn.touched"></i>
+                      <i  class="fas fa-pen"  [class.green-icon]="titleEn.valid" [class.red-icon]="titleEn.invalid && titleEn.touched"></i>
                     </div>
                   </div>
-                  <input name="TitleEn" #TitleEn="ngModel" [(ngModel)]="service.formData.TitleEn" 
+                  <input name="titleEn" #titleEn="ngModel" [(ngModel)]="service.formData.titleEn" 
                   class="form-control" placeholder="Titre Anglais" required maxlength="100" minlength="0">
                 </div>
               </div>
@@ -102,14 +102,14 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <div class="input-group-text bg-white">
-                      <i  class="fas fa-trophy" [class.green-icon]="Institution.valid" [class.red-icon]="Institution.invalid && Institution.touched"></i>
+                      <i  class="fas fa-trophy" [class.green-icon]="institution.valid" [class.red-icon]="institution.invalid && institution.touched"></i>
                     </div>
                   </div>
-                  <select required name="Institution" 
-                                #Institution="ngModel" 
-                                class="form-control" [(ngModel)]="service.formData.Institution">  
+                  <select required name="institution" 
+                                #institution="ngModel" 
+                                class="form-control" [(ngModel)]="service.formData.institution">  
                            <option value="" selected disabled> <i>Select Institution</i></option> 
-                            <option *ngFor="let x1 of service.listInst | unique"  
+                            <option *ngFor="let x1 of service.listInst"  
                                     [ngValue]="x1.signature">  
                                 {{x1.signature}}  
                             </option>  

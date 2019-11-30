@@ -13,8 +13,8 @@ namespace MultiGrain.DAL.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+       
         public int Value { get; set; }
-        public List<Catalog> Catalogs { get; set; }
         public int? InstitutionId { get; set; }
         [ForeignKey("InstitutionId")]
         public Institution Institution { get; set; }

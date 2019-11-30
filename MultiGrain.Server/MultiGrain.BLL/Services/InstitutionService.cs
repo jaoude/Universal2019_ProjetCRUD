@@ -53,6 +53,12 @@ namespace MultiGrain.BLL.Services
             else
                 return false;
         }
+        public async Task UpdateInstitutionAsync(CreateInstitutionDto ins, CancellationToken ct)
+        {
+            Institution entity = _mapper.Mapper.Map<Institution>(ins);
+            await _uow.Institutions.UpdateInstitutionAsync(entity, ct);
+            await _uow.SaveChangesAsync(ct);
+        }
     }
 
 }

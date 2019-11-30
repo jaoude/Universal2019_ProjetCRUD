@@ -5,11 +5,11 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-          <i class="fas fa-info" [class.green-icon]="FirstName.valid" [class.red-icon]="FirstName.invalid && FirstName.touched"></i>
+          <i class="fas fa-info" [class.green-icon]="semestre.valid" [class.red-icon]="semestre.invalid && semestre.touched"></i>
         </div>
       </div>
-      <input name="FirstName"  #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" 
-      class="form-control" placeholder="First Name" >
+      <input name="semestre"  #semestre="ngModel" [(ngModel)]="service.formData.semestre" 
+      class="form-control" placeholder="Smestre" >
     </div>
   </div>
 
@@ -18,10 +18,10 @@
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text bg-white">
-            <i class="fas fa-info"  [class.green-icon]="LastName.valid" [class.red-icon]="LastNameinvalid && LastName.touched"></i>
+            <i class="fas fa-info"  [class.green-icon]="title.valid" [class.red-icon]="titleinvalid && title.touched"></i>
           </div>
         </div>
-        <input name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName" 
+        <input name="title" #title="ngModel" [(ngModel)]="service.formData.title" 
         class="form-control" placeholder="Last Name" required maxlength="50" minlength="0">
       </div>
     </div>
@@ -30,11 +30,11 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-          <i  class="fas fa-phone-square" [class.green-icon]="Phone.valid" [class.red-icon]="Phone.invalid && Phone.touched"></i>
+          <i  class="fas fa-phone-square" [class.green-icon]="credits.valid" [class.red-icon]="credits.invalid && credits.touched"></i>
         </div>
       </div>
-      <input name="Phone" #Phone="ngModel" [(ngModel)]="service.formData.Phone" 
-      class="form-control" placeholder="Phone Number" required  type = "number" maxlength="50" minlength="0">
+      <input name="credits" #credits="ngModel" [(ngModel)]="service.formData.credits" 
+      class="form-control" placeholder="Credits" required  type = "number" maxlength="50" minlength="0">
     </div>
   </div>
 

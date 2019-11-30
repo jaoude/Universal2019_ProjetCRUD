@@ -17,16 +17,16 @@ export class ProgramService {
   listInst: Institution[];
   constructor(private http: HttpClient) {}
 
-  postInstitution() {
+  postProgram() {
     return this.http.post(this.rootURL + "/program", this.formData);
   }
-  putInstitution() {
+  putProgram() {
     return this.http.put(
       this.rootURL + "/program/" + this.formData.Id,
       this.formData
     );
   }
-  deleteInstitution(id) {
+  deleteProgram(id) {
     return this.http.delete(this.rootURL + "/program/" + id);
   }
 
@@ -34,7 +34,7 @@ export class ProgramService {
     this.http
       .get(this.rootURL + newLocal)
       .toPromise()
-      .then(res => (this.list = res as Program[]));
+      .then(res => (this.list = res as Program[]));     
   }
   getInst()
   {

@@ -2,18 +2,20 @@
 
 <table class="table table-hover">
     <tr>
-        <td><b>First Name</b></td>
-        <td><b>Last Name</b></td>
-        <td><b>Phone</b></td>
-        <td><b>Remarks</b></td>
-        <td><b>Institution</b></td>
+        <td><b>Semestre</b></td>
+        <td><b>Title</b></td>
+        <td><b>Credits</b></td>
+        <td><b>Categorie</b></td>
+        <td><b>Cygle</b></td>
+        <td><b>Catalogs</b></td>
       </tr>
   <tr *ngFor="let pdperson of service.list">
-    <td (click)="populateForm(pdperson)">{{pdperson.FirstName}}</td>
-    <td (click)="populateForm(pdperson)">{{pdperson.LastName}}</td>
-    <td (click)="populateForm(pdperson)">{{pdperson.Phone}}</td>
-    <td (click)="populateForm(pdperson)">{{pdperson.Remarks}}</td>
-    <td (click)="populateForm(pdperson)">{{pdperson.Institution}}</td>
+    <td (click)="populateForm(pdperson)">{{pdperson.semestre}}</td>
+    <td (click)="populateForm(pdperson)">{{pdperson.title}}</td>
+    <td (click)="populateForm(pdperson)">{{pdperson.credits}}</td>
+    <td (click)="populateForm(pdperson)">{{pdperson.mode}}</td>
+    <td (click)="populateForm(pdperson)">{{pdperson.cygle}}</td>
+    <td (click)="populateForm(pdperson)">{{pdperson.catalognumb}}</td>
     <td>
       <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pdperson.Id)"></i>
     </td>

@@ -16,6 +16,7 @@ export class InstitutionService {
   constructor(private http: HttpClient) {}
 
   postInstitution() {
+    debugger;
     return this.http.post(this.rootURL + "/institutions", this.formData);
   }
   putInstitution() {

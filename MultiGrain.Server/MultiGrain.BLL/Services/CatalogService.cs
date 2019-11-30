@@ -10,7 +10,7 @@ using System.Threading;
 using System.Linq;
 using System.Threading.Tasks;
 using MultiGrain.BLL.Helpers;
-
+using MultiGrain.BLL.Dtos.Result;
 
 namespace MultiGrain.BLL.Services
 {
@@ -20,18 +20,18 @@ namespace MultiGrain.BLL.Services
         {
         }
 
-        public async Task<IEnumerable<CatalogDto>> GetCatalogAsync(CancellationToken ct)
+        public async Task<IEnumerable<Catalog>> GetCatalogAsync(CancellationToken ct)
         {
             IEnumerable<Catalog> CatalogEntity = await _uow.Catalog.GetCatalogAsync(ct);
-            IEnumerable<CatalogDto> CatalogDto = _mapper.Mapper.Map<IEnumerable<CatalogDto>>(CatalogEntity);
-            return CatalogDto.ToList();
+            //IEnumerable<CatalogDto> CatalogDto = _mapper.Mapper.Map<IEnumerable<CatalogDto>>(CatalogEntity);
+            return CatalogEntity.ToList();
         }
 
-        public async Task<CatalogDto> GetCatalogAsync(int id, CancellationToken ct)
+        public  List<FullTeachingUnitDto>  GetCatalog(int id)
         {
-            Catalog CatalogEntity = await _uow.Catalog.GetCatalogAsync(id, ct);
-            CatalogDto CatalogDto = _mapper.Mapper.Map<CatalogDto>(CatalogEntity);
-            return CatalogDto;
+            //List<TeachingUnit> CatalogEntity = _uow.Catalog.GetCatalog(id);
+            //CatalogDto CatalogDto = _mapper.Mapper.Map<CatalogDto>(CatalogEntity);
+            return new ListFullTeachingUnitDto().list;
         }
 
         //public async Task<int?> CreateCatalogAsync(CreateCatalogDto CreateCatalogDto, CancellationToken ct)

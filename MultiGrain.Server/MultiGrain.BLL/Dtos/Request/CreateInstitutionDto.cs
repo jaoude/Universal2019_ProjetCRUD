@@ -6,6 +6,7 @@ namespace MultiGrain.BLL.Dtos
 {
     public class CreateInstitutionDto
     {
+        public int id { get; set; }
         [Required]
         public decimal LectureDuration { get; set; }
         [Required]

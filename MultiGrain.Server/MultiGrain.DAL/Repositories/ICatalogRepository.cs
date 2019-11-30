@@ -10,9 +10,10 @@ namespace MultiGrain.DAL.Repositories
     public interface ICatalogRepository : IRepository<Catalog>
     {
         Task<IEnumerable<Catalog>> GetCatalogAsync(CancellationToken ct);
-        Task<Catalog> GetCatalogAsync(int id, CancellationToken ct);
+        List<TeachingUnit> GetCatalog(int id);
         //void CreateCatalog(Catalog CatalogEntity);
 
 
     }
+
 }

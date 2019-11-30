@@ -23,11 +23,12 @@ export class PersonComponent implements OnInit {
       form.form.reset();
     this.service.formData = {
       Id: 0,
-      FirstName: '' ,
-      LastName: '',
-      Phone: '',
-      Remarks: '',
-      Institution: ''
+      semestre: 0 ,
+      title: '',
+      credits: '',
+      mode: '',
+      cygle: '',
+      catalognumb: ''
     }
   }
   onSubmit(form: NgForm) {
@@ -42,7 +43,7 @@ export class PersonComponent implements OnInit {
       res => {
         debugger;
         this.resetForm(form);
-        this.toastr.success('Submitted successfully', 'Person Registered');
+        this.toastr.success('Submitted successfully', 'Catalog Registered');
         this.service.refreshList();
       },
       err => {
@@ -55,7 +56,7 @@ export class PersonComponent implements OnInit {
     this.service.putInstitution().subscribe(
       res => {
         this.resetForm(form);
-        this.toastr.info('Submitted successfully', 'Person Register');
+        this.toastr.info('Submitted successfully', 'Catalog Register');
         this.service.refreshList();
       },
       err => {

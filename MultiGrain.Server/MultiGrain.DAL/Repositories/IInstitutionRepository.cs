@@ -12,6 +12,6 @@ namespace MultiGrain.DAL.Repositories
         Task<IEnumerable<Institution>> GetInstitutionAsync(CancellationToken ct);
         Task<Institution> GetInstitutionAsync(Guid id, CancellationToken ct);
         Task CreateInstitution(Institution InstitutionEntity);
-
+        Task UpdateInstitutionAsync(Institution ins, CancellationToken ct);
     }
 }

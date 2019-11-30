@@ -41,7 +41,7 @@ export class ProgramComponent implements OnInit {
   }
 
   insertRecord(form: NgForm) {
-    this.service.postInstitution().subscribe(
+    this.service.postProgram().subscribe(
       res => {
         debugger;
         this.resetForm(form);
@@ -55,7 +55,7 @@ export class ProgramComponent implements OnInit {
     )
   }
   updateRecord(form: NgForm) {
-    this.service.putInstitution().subscribe(
+    this.service.putProgram().subscribe(
       res => {
         this.resetForm(form);
         this.toastr.info('Submitted successfully', 'Program Register');

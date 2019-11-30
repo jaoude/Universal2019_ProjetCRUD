@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProgramService } from 'src/app/shared/shared-programs/program.service';
 import { ToastrService } from 'ngx-toastr';
 import { Program } from 'src/app/shared/shared-programs/program.model';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-program-list',
   templateUrl: './program-list.component.html',
@@ -10,11 +11,19 @@ import { Program } from 'src/app/shared/shared-programs/program.model';
 export class ProgramListComponent implements OnInit {
 
   constructor(private service: ProgramService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private router : Router) { }
 
+
+    redirect()
+    {
+ this.router.navigateByUrl('Catalog');
+    }
   ngOnInit() {
     
     this.service.refreshList();
+    this.service.getInst();
+    
   }
   populateForm(pd: Program) {
   debugger;
@@ -23,7 +32,7 @@ export class ProgramListComponent implements OnInit {
 
   onDelete(InstId) {
     if (confirm('Are you sure to delete this record ?')) {
-      this.service.deleteInstitution(InstId)
+      this.service.deleteProgram(InstId)
         .subscribe(res => {
           debugger;
           this.service.refreshList();

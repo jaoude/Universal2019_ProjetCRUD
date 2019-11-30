@@ -37,12 +37,13 @@ namespace MultiGrain.Api.Controllers
 
         [HttpGet]
         [Route("{id}", Name = "GetCatalog")]
-        public async Task<IActionResult> GetPerson(int id, CancellationToken ct)
+        public  IActionResult Get(int id)
         {
-            _logger.LogInformation("called GetPerson");
-            var personDto = await _catalogService.GetCatalogAsync(id, ct);
+            _logger.LogInformation("called Get Catalog");
+            var personDto =  _catalogService.GetCatalog(id);
             return Ok(personDto);
         }
+        
 
         //[HttpPost]
         //public async Task<IActionResult> CreatePerson([FromBody] CreatePersonDto person, CancellationToken ct)

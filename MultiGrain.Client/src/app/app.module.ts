@@ -35,7 +35,7 @@ import { ProgramService } from './shared/shared-programs/program.service';
 const appRoutes: Routes = [
   { path: '', component: InstitutionsComponent, data: { title: 'Inst' } },
   { path: 'institutions', component: InstitutionsComponent, data: { title: 'Institutions' } },
-  { path: 'persons', component: PersonsComponent, data: { title: 'Persons' } },
+  { path: 'Catalog', component: PersonsComponent, data: { title: 'Persons' } },
   { path: 'program', component: ProgramsComponent, data: { title: 'Programs' } },
   { path: 'file', component: DocumentsComponent, data: { title: 'Documents' } }
  

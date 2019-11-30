@@ -30,6 +30,8 @@ namespace MultiGrain.BLL.Helpers
 
             CreateMap<TeachingUnit,TeachingUnitDto >();
             CreateMap<CreateTeachingUnitDto, TeachingUnit>();
+
+            CreateMap<CreateInstitutionDto, Institution>();
         }
     }
 }
