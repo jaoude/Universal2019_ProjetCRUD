@@ -64,7 +64,7 @@ modules = AllCommunityModules;*/
       //  width: 200
       },
       {
-        headerName: "Cygle",
+        headerName: "Sigle",
         field: "cygle",
        // width: 100
       },
@@ -76,6 +76,11 @@ modules = AllCommunityModules;*/
       {
         headerName: "Program",
         field: "program",
+       // width: 100
+      }  ,
+      {
+        headerName: "Catalogs",
+        field: "catalog",
        // width: 100
       }  
     ];
