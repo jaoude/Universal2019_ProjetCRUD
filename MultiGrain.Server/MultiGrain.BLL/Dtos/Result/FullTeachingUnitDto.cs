@@ -10,16 +10,17 @@ namespace MultiGrain.BLL.Dtos.Result
         public ListFullTeachingUnitDto()
         {
             list = new List<FullTeachingUnitDto>();
-            list.Add(new FullTeachingUnitDto("1","S1","T1","C1","M1","C1","cat1","in1","p1"));
-            list.Add(new FullTeachingUnitDto("2", "S2", "T2", "C2", "M2", "C2", "cat2", "in2", "p2"));
-            list.Add(new FullTeachingUnitDto("3", "S3", "T3", "C3", "M3", "C3", "cat3", "in3", "p3"));
-
+            list.Add(new FullTeachingUnitDto("1","S1","T1","C1","M1","C1","cat1","in1","p1","2018"));
+            list.Add(new FullTeachingUnitDto("2", "S1", "T2", "C2", "M2", "C2", "cat2", "in2", "p2","2018"));
+            list.Add(new FullTeachingUnitDto("3", "S3", "T3", "C3", "M3", "C3", "cat3", "in3", "p3","2019"));
+            list.Add(new FullTeachingUnitDto("3", "S3", "T4", "C4", "M4", "C4", "cat4", "in4", "p4","2019"));
+            list.Add(new FullTeachingUnitDto("3", "S3", "T4", "C4", "M4", "C4", "cat4", "in4", "p4","2020"));
         }
     }
    public class FullTeachingUnitDto
     {
         public FullTeachingUnitDto(string id, string semestre, string title, string
-            credits, string mode, string cygle, string catalog, string instituion, string program)
+            credits, string mode, string cygle, string catalog, string instituion, string program,string year)
         {
             this.id = id;
             this.semestre = semestre;
@@ -30,6 +31,7 @@ namespace MultiGrain.BLL.Dtos.Result
             this.catalog = catalog;
             this.instituion = instituion;
             this.program = program;
+            this.year = year;
         }
         public string id { get; set; }
         public string semestre { get; set; }
@@ -41,6 +43,8 @@ namespace MultiGrain.BLL.Dtos.Result
 
         public string instituion { get; set; }
         public string program { get; set; }
+
+        public string year { get; set; }
         //    Id :number;
         //semestre: number;
         //title: string;

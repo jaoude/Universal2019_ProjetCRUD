@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Person } from './persons.model';
 import { Institution } from '../shared-institutions/institution.model';
-const apiinst = "/Institutions";
+const apiinst = "/catalogs";
 @Injectable({
   providedIn: 'root'
 })
@@ -17,17 +17,17 @@ export class PersonsService {
   constructor(private http: HttpClient) { }
   
   postInstitution() {
-    return this.http.post(this.rootURL + '/Persons', this.formData);
+    return this.http.post(this.rootURL + '/catalogs', this.formData);
   }
   putInstitution() {
-    return this.http.put(this.rootURL + '/Persons/'+ this.formData.Id, this.formData);
+    return this.http.put(this.rootURL + '/catalogs/'+ this.formData.Id, this.formData);
   }
   deleteInstitution(id) {
-    return this.http.delete(this.rootURL + '/Persons/'+ id);
+    return this.http.delete(this.rootURL + '/catalogs/'+ id);
   }
 
   refreshList(){
-    this.http.get(this.rootURL + '/Persons')
+    this.http.get(this.rootURL + '/catalogs')
     .toPromise()
     .then(res => this.list = res as Person[]);
   }

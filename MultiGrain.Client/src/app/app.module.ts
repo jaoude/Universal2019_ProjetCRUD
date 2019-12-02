@@ -31,11 +31,15 @@ import { ProgramsComponent } from './programs/programs.component';
 import { ProgramComponent } from './programs/program/program.component';
 import { ProgramListComponent } from './programs/program-list/program-list.component';
 import { ProgramService } from './shared/shared-programs/program.service';
+import { GridComponent } from './grid/grid.component';
 
+//import { AllModules, Module } from "@ag-grid-enterprise/all-modules";
+import { AgGridModule } from '@ag-grid-community/angular';
+import {AllModules} from '@ag-grid-enterprise/all-modules';
 const appRoutes: Routes = [
   { path: '', component: InstitutionsComponent, data: { title: 'Inst' } },
   { path: 'institutions', component: InstitutionsComponent, data: { title: 'Institutions' } },
-  { path: 'Catalog', component: PersonsComponent, data: { title: 'Persons' } },
+  { path: 'Catalog', component: GridComponent, data: { title: 'Persons' } },
   { path: 'program', component: ProgramsComponent, data: { title: 'Programs' } },
   { path: 'file', component: DocumentsComponent, data: { title: 'Documents' } }
  
@@ -59,7 +63,8 @@ const appRoutes: Routes = [
     DocumentListComponent,
     ProgramsComponent,
     ProgramComponent,
-    ProgramListComponent
+    ProgramListComponent,
+    GridComponent
   
   ],
   imports: [
@@ -67,7 +72,8 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-   
+    AgGridModule.withComponents([]),
+    
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     CustomMaterialModule,

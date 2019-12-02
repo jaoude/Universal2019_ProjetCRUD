@@ -26,11 +26,19 @@ namespace MultiGrain.Api.Controllers
         }
 
 
+        //[HttpGet]
+        //public async Task<IActionResult> GetCatalogs(CancellationToken ct)
+        //{
+        //    _logger.LogInformation("called GetCatalogs");
+        //    var personsDto = await _catalogService.GetCatalogAsync(ct);
+        //    return Ok(personsDto);
+        //}
+
         [HttpGet]
-        public async Task<IActionResult> GetCatalogs(CancellationToken ct)
+        public IActionResult GetCatalogs()
         {
             _logger.LogInformation("called GetCatalogs");
-            var personsDto = await _catalogService.GetCatalogAsync(ct);
+            var personsDto = _catalogService.GetCatalog(1);
             return Ok(personsDto);
         }
 
