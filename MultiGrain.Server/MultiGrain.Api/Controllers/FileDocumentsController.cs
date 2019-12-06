@@ -23,6 +23,13 @@ namespace MultiGrain.Api.Controllers
             _fileDocumentService = fileDocumentService;
             _logger = logger;
         }
+        [HttpGet]
+        public IActionResult GetDocuments()
+        {
+            _logger.LogInformation("called GetCatalogs");
+            var personsDto = _fileDocumentService.GetDocuments();
+            return Ok(personsDto);
+        }
 
         /*{
             "name": "Diploma requiremnts documets",

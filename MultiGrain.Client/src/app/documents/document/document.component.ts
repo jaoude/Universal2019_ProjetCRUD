@@ -15,6 +15,7 @@ export class DocumentComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
     this.service.getInst();
+    this.service.getProg();
   }
 
   resetForm(form?: NgForm) {
@@ -26,6 +27,8 @@ export class DocumentComponent implements OnInit {
       NameEn: '',
       NameFr: '',
       Institution: '',
+      Program: '',
+      contenttype: '',
       FileToUpload: null
     }
   }

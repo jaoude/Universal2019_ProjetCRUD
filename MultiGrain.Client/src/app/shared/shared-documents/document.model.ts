@@ -4,6 +4,8 @@ export class Document_Class {
     NameEn: string;
     NameFr: string;
     Institution: string;
+    Program: string;
+    contenttype: string;
     FileToUpload: File;
 
 }

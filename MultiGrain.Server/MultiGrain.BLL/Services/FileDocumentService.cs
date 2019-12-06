@@ -36,6 +36,14 @@ namespace MultiGrain.BLL.Services
             _uow.FileDocuments.Add(fileDocumentEntity);
 
             return await _uow.SaveChangesAsync(ct) > 0;
+
+
         }
+        public List<FileDocument> GetDocuments()
+        {
+            return _uow.FileDocuments.GetAll().ToList();
+        }
+
+
     }
 }

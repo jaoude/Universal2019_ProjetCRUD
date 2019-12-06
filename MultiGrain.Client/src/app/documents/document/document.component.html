@@ -49,9 +49,28 @@
                     #Institution="ngModel" 
                     class="form-control" [(ngModel)]="service.formData.Institution">  
                <option value="" selected disabled> <i>Select Institution</i></option> 
-                <option *ngFor="let x2 of service.listInst | unique"  
-                        [ngValue]="x2.signature">  
-                    {{x2.signature}}  
+                <option *ngFor="let x2 of service.listInst "  
+                        [ngValue]="x2.title">  
+                    {{x2.title}}  
+                </option>  
+            </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i  class="fas fa-trophy" [class.green-icon]="Program.valid" [class.red-icon]="Program.invalid && Program.touched"></i>
+        </div>
+      </div>
+      <select required name="Program" 
+                    #Program="ngModel" 
+                    class="form-control" [(ngModel)]="service.formData.Program">  
+               <option value="" selected disabled> <i>Select Program</i></option> 
+                <option *ngFor="let x2 of service.listProgram "  
+                        [ngValue]="x2.title">  
+                    {{x2.title}}  
                 </option>  
             </select>
     </div>

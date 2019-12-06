@@ -1,4 +1,5 @@
 ﻿using MultiGrain.BLL.Dtos;
+using MultiGrain.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -14,5 +15,7 @@ namespace MultiGrain.BLL.Services
             string contentType,
             string userName, 
             CancellationToken ct);
+
+        List<FileDocument> GetDocuments();
     }
 }
