@@ -25,7 +25,7 @@ export class UploadComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
  
-    this.http.post('http://localhost:59035/api/upload', formData, {reportProgress: true, observe: 'events'})
+    this.http.post('http://localhost:59035/api/filedocuments', formData, {reportProgress: true, observe: 'events'})
       .subscribe(event => {
         if (event.type === HttpEventType.UploadProgress)
           this.progress = Math.round(100 * event.loaded / event.total);

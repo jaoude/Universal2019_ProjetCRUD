@@ -1,16 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DocumentService } from 'src/app/shared/shared-documents/document.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
+import { HttpEventType, HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-document',
   templateUrl: './document.component.html',
   styles: []
 })
 export class DocumentComponent implements OnInit {
+
+  public progress: number;
+  public message: string;
+  @Output() public onUploadFinished = new EventEmitter();
+ 
   constructor(private service: DocumentService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService, private http: HttpClient) { }
 
   ngOnInit() {
     this.resetForm();
@@ -32,38 +38,29 @@ export class DocumentComponent implements OnInit {
       FileToUpload: null
     }
   }
-  onSubmit(form: NgForm) {
-    if (this.service.formData.Id == 0)
-      this.insertRecord(form);
-    else
-      this.updateRecord(form);
-  }
-
-  insertRecord(form: NgForm) {
-    this.service.postInstitution().subscribe(
-      res => {
-        debugger;
-        this.resetForm(form);
-        this.toastr.success('Submitted successfully', 'Document Registered');
-        this.service.refreshList();
-      },
-      err => {
-        debugger;
-        console.log(err);
-      }
-    )
-  }
-  updateRecord(form: NgForm) {
-    this.service.putInstitution().subscribe(
-      res => {
-        this.resetForm(form);
-        this.toastr.info('Submitted successfully', 'Document Register');
-        this.service.refreshList();
-      },
-      err => {
-        console.log(err);
-      }
-    )
+ 
+  public uploadFile = (files) => {
+    if (files.length === 0) {
+      return;
+    }
+ 
+    let fileToUpload = <File>files[0];
+    const formData = new FormData();
+    formData.append('fileInfoText', '{"nameAr": "'+this.service.formData.NameAr+'","nameEn": "'+this.service.formData.NameEn+ '","nameFr": "'+this.service.formData.NameFr+'", "action": null,"institutionId": null }');
+    formData.append('file', fileToUpload, fileToUpload.name);
+  
+  
+    this.http.post('http://localhost:59035/api/filedocuments', formData, {reportProgress: true, observe: 'events'})
+      .subscribe(event => {
+        if (event.type === HttpEventType.UploadProgress)
+          this.progress = Math.round(100 * event.loaded / event.total);
+        else if (event.type === HttpEventType.Response) {
+          this.message = 'Upload successful!';
+          this.onUploadFinished.emit(event.body);
+          this.service.refreshList();
+        }
+      });
+    
   }
 
 }

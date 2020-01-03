@@ -29,7 +29,7 @@ export class InstitutionListComponent implements OnInit {
    
   }
   populateForm(pd: Institution) {
-    debugger;
+    
 
     this.service.formData = Object.assign({}, pd);
   
@@ -39,7 +39,7 @@ export class InstitutionListComponent implements OnInit {
     if (confirm("Are you sure to delete this record ?")) {
       this.service.deleteInstitution(InstId).subscribe(
         res => {
-          debugger;
+         
           this.service.refreshList();
           this.toastr.warning("Deleted successfully", "Institution Register");
         },
