@@ -17,5 +17,6 @@ namespace MultiGrain.BLL.Services
             CancellationToken ct);
 
         List<FileDocument> GetDocuments();
+        Task<bool> DeleteDocumentAsync(int id, CancellationToken ct);
     }
 }

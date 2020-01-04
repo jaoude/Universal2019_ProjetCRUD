@@ -42,8 +42,20 @@ namespace MultiGrain.BLL.Services
         public List<FileDocument> GetDocuments()
         {
             return _uow.FileDocuments.GetAll().ToList();
+         
         }
-
+        public List<FileDocument> GetFile()
+        {
+            return _uow.FileDocuments.GetAll().ToList();
+        }
+        public async Task<bool> DeleteDocumentAsync(int id, CancellationToken ct)
+        {
+            _uow.FileDocuments.Remove(id);
+            if (await _uow.SaveChangesAsync(ct) > 0)
+                return true;
+            else
+                return false;
+        }
 
     }
 }

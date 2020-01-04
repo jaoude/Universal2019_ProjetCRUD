@@ -11,9 +11,9 @@
     <td (click)="populateForm(pd3)">{{pd3.nameAr}}</td>
     <td (click)="populateForm(pd3)">{{pd3.nameEn}}</td>
     <td (click)="populateForm(pd3)">{{pd3.nameFr}}</td>
-    <td > <button class="btn btn-success">Download</button></td>
+    <td > <button class="btn btn-success" (click)="downloadFile(pd3.id,pd3.nameEn)">Download</button></td>
     <td>
-      <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd2.InstId)"></i>
+      <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd3.id)"></i>
     </td>
   </tr>
 </table>

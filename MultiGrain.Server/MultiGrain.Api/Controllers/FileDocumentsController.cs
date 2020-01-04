@@ -8,6 +8,10 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Web;
+using System.Net;
 
 namespace MultiGrain.Api.Controllers
 {
@@ -29,6 +33,25 @@ namespace MultiGrain.Api.Controllers
             _logger.LogInformation("called GetCatalogs");
             var personsDto = _fileDocumentService.GetDocuments();
             return Ok(personsDto);
+        }
+       
+        [HttpGet("{id}")]
+        public ActionResult DownloadDocument(int id)
+        {
+           
+            for (int i = 0; i < _fileDocumentService.GetDocuments().Count; i++)
+            {
+                if (id == _fileDocumentService.GetDocuments()[i].Id)
+                {
+                    string fileName = _fileDocumentService.GetDocuments()[i].FileName;
+
+                    byte[] fileBytes = _fileDocumentService.GetDocuments()[i].Data;
+
+                    return File(fileBytes, "APPLICATION/octet-stream", fileName);
+                }
+
+            }
+            return null;
         }
 
         /*{
@@ -63,6 +86,14 @@ namespace MultiGrain.Api.Controllers
                 ct);
 
             return Ok(/*new { count = 1, file.Length }*/);
+        }
+
+        [HttpDelete("{id}")]
+
+        public async Task<IActionResult> DeleteDocument(int id, CancellationToken ct)
+        {
+            var action = await _fileDocumentService.DeleteDocumentAsync(id, ct);
+            return Ok(action);
         }
         ///
     }

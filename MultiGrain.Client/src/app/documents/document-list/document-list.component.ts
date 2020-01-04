@@ -2,6 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { DocumentService } from "src/app/shared/shared-documents/document.service";
 import { ToastrService } from "ngx-toastr";
 import { Document_Class } from "src/app/shared/shared-documents/document.model";
+import { HttpClient } from '@angular/common/http';
+import { saveAs } from 'file-saver';
+
 @Component({
   selector: "app-document-list",
   templateUrl: "./document-list.component.html",
@@ -10,7 +13,7 @@ import { Document_Class } from "src/app/shared/shared-documents/document.model";
 export class DocumentListComponent implements OnInit {
   constructor(
     private service: DocumentService,
-    private toastr: ToastrService
+    private toastr: ToastrService, private http: HttpClient
   ) {}
 
   ngOnInit() {
@@ -20,9 +23,9 @@ export class DocumentListComponent implements OnInit {
     this.service.formData = Object.assign({}, pd);
   }
 
-  onDelete(InstId) {
+  onDelete(id) {
     if (confirm("Are you sure to delete this record ?")) {
-      this.service.deleteInstitution(InstId).subscribe(
+      this.service.deleteInstitution(id).subscribe(
         res => {
           this.service.refreshList();
           this.toastr.warning("Deleted successfully", "Document Register");
@@ -33,4 +36,12 @@ export class DocumentListComponent implements OnInit {
       );
     }
   }
-}
+  downloadFile(id,filename) {
+    debugger;
+    this.http.get('https://localhost:44368/api/filedocuments/'+id, { responseType: 'blob' }).subscribe(blob => {
+       saveAs(blob, filename + '.pdf', {
+          type: 'text/plain;charset=windows-1252' // --> or whatever you need here
+       });
+    });
+   }
+}  
